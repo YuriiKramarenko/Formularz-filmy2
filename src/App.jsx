@@ -11,15 +11,12 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Formularz filmów</h1>
-
   <form onSubmit={(e) => wpisz(e)}>
         <label>Nazwa filmu: </label>
-        <input type="text" value={tytul}/><br />
+        <input type="text" name="tytul"/><br />
         
         <label>Kategoria: </label>
-        <select value={kategoria}>
+        <select name="kategoria">
           <option value="">wybierz kategorię</option>
           <option value="1">Komedia</option>
           <option value="2">Obyczajowy</option>
@@ -27,10 +24,9 @@ function App() {
           <option value="4">Horror</option>
         </select><br />
 
-        <input type="sumbit" value="Dodaj"/>
+        <input type="submit" value="Dodaj" />
 
     </form>
-    </div>
   );
 }
 
