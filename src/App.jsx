@@ -1,32 +1,37 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [nazwa, setnazwa] = useState("")
-  const [rodzaj, setrodzaj] = useState("")
+  const [tytul, settytul] = useState()
+  const [kategoria, setkategoria] = useState()
+
+  function wpisz(e) {
+    e.preventDevault()
+    console.log("Formularz wysłany")
+    console.log("tytul: " + setkategoria + "rodzaj: " + settytul)
+  }
 
   return (
-    <>
-      <form>
-        <label htmlFor="nazwa">Tytuł filmu</label><br />
+    <div>
+      <h1>Formularz filmów</h1>
 
-        <input type="text" id="nazwa" name="nazwa" /><br />
+  <form onSubmit={(e) => wpisz(e)}>
+        <label>Nazwa filmu: </label>
+        <input type="text" value={tytul}/><br />
+        
+        <label>Kategoria: </label>
+        <select value={kategoria}>
+          <option value="">wybierz kategorię</option>
+          <option value="1">Komedia</option>
+          <option value="2">Obyczajowy</option>
+          <option value="3">Sensacyjny</option>
+          <option value="4">Horror</option>
+        </select><br />
 
+        <input type="sumbit" value="Dodaj"/>
 
-<label for="cars">Choose a car:</label><br />
-
-<select name="cars" id="cars">
-  <option value=""></option>
-  <option value="1">Komedia</option>
-  <option value="2">Obyczajowy</option>
-  <option value="3">Sensacyjny</option>
-  <option value="4">Horror</option>
-</select><br /><br />
-
-        <input type="submit" value="Dodaj" />
-      </form>
-    </>
-  )
+    </form>
+    </div>
+  );
 }
 
-export default App
+export default App;
